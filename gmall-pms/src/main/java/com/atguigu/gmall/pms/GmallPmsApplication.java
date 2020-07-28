@@ -14,7 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableFeignClients
 @EnableSwagger2
-@MapperScan("com.atguigu.pm")
+@MapperScan("com.atguigu.gmall.pms.mapper")
 public class GmallPmsApplication {
 
     public static void main(String[] args) {
