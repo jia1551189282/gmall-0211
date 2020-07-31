@@ -1,20 +1,26 @@
 package com.atguigu.gmall.pms.service.impl;
 
-import org.springframework.stereotype.Service;
-import java.util.Map;
+import com.atguigu.gmall.common.bean.PageParamVo;
+import com.atguigu.gmall.common.bean.PageResultVo;
+import com.atguigu.gmall.pms.entity.CategoryBrandEntity;
+import com.atguigu.gmall.pms.entity.CategoryEntity;
+import com.atguigu.gmall.pms.mapper.CategoryBrandMapper;
+import com.atguigu.gmall.pms.mapper.CategoryMapper;
+import com.atguigu.gmall.pms.service.CategoryBrandService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.atguigu.gmall.common.bean.PageResultVo;
-import com.atguigu.gmall.common.bean.PageParamVo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.atguigu.gmall.pms.mapper.CategoryBrandMapper;
-import com.atguigu.gmall.pms.entity.CategoryBrandEntity;
-import com.atguigu.gmall.pms.service.CategoryBrandService;
+import java.util.List;
 
 
 @Service("categoryBrandService")
 public class CategoryBrandServiceImpl extends ServiceImpl<CategoryBrandMapper, CategoryBrandEntity> implements CategoryBrandService {
+
+    @Autowired
+    private CategoryMapper categoryMapper;
 
     @Override
     public PageResultVo queryPage(PageParamVo paramVo) {
@@ -25,5 +31,7 @@ public class CategoryBrandServiceImpl extends ServiceImpl<CategoryBrandMapper, C
 
         return new PageResultVo(page);
     }
+
+
 
 }

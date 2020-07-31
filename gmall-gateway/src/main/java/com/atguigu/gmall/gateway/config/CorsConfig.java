@@ -17,8 +17,12 @@ public class CorsConfig {
     @Bean
     public CorsWebFilter corsWebFilter(){
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("http://localhost:8000");
-        config.addAllowedOrigin("http://localhost:18080");
+
+        // 允许的域,不要写*，否则cookie就无法使用了
+        config.addAllowedOrigin("http://manager.gmall.com");/*
+        config.addAllowedOrigin("http://www.gmall.com");
+        config.addAllowedOrigin("api.gmall.com");*/
+        config.addAllowedOrigin("*");
         // 允许的请求头
         config.addAllowedHeader("*");
         // 允许的请方法

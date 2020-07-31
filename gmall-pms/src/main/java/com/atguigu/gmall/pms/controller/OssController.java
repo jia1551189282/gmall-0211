@@ -29,7 +29,7 @@ public class OssController {
     String accessId = "LTAI4GD8eofb73ye4hRB4XAT"; // 请填写您的AccessKeyId。
     String accessKey = "IHCtkreTrelivCcytPxuEXKkAjLjKT"; // 请填写您的AccessKeySecret。
     String endpoint = "oss-cn-shenzhen.aliyuncs.com"; // 请填写您的 endpoint。
-    String bucket = "gmallstudy"; // 请填写您的 bucketname 。
+    String bucket = "gmall0211study"; // 请填写您的 bucketname 。
     String host = "https://" + bucket + "." + endpoint; // host的格式为 bucketname.endpoint
 
     String dir = LocalDate.now().toString(); // 用户上传文件时指定的前缀。
