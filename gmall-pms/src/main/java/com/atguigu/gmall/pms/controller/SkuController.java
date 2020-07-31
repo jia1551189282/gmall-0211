@@ -1,23 +1,17 @@
 package com.atguigu.gmall.pms.controller;
 
-import java.util.List;
-
+import com.atguigu.gmall.common.bean.PageParamVo;
+import com.atguigu.gmall.common.bean.PageResultVo;
+import com.atguigu.gmall.common.bean.ResponseVo;
+import com.atguigu.gmall.pms.entity.SkuEntity;
+import com.atguigu.gmall.pms.service.SkuService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.atguigu.gmall.pms.entity.SkuEntity;
-import com.atguigu.gmall.pms.service.SkuService;
-import com.atguigu.gmall.common.bean.PageResultVo;
-import com.atguigu.gmall.common.bean.ResponseVo;
-import com.atguigu.gmall.common.bean.PageParamVo;
+import java.util.List;
 
 /**
  * sku信息
@@ -88,6 +82,20 @@ public class SkuController {
 		skuService.removeByIds(ids);
 
         return ResponseVo.ok();
+    }
+
+    /**
+     * 根据spuId 查询sku列表
+     * @param spuId  spuid
+     * @return 列表
+     */
+    @ApiOperation("根据spuId查询sku列表")
+    @GetMapping("spu/{spuId}")
+    public ResponseVo<List<SkuEntity>> list(
+            @PathVariable("spuId")Long spuId
+    ){
+        List<SkuEntity> skuEntities = skuService.list(new QueryWrapper<SkuEntity>().eq("spu_id", spuId));
+        return ResponseVo.ok(skuEntities);
     }
 
 }
