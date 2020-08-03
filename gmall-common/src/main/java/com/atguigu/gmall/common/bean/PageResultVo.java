@@ -1,8 +1,8 @@
 package com.atguigu.gmall.common.bean;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,6 +11,7 @@ import java.util.List;
  * 分页工具类
  */
 @Data
+@NoArgsConstructor
 public class PageResultVo implements Serializable {
 
 	private static final long serialVersionUID = 1L;

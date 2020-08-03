@@ -98,4 +98,16 @@ public class AttrController {
         return ResponseVo.ok(attrEntities);
     }
 
+    @ApiOperation("分类查询")
+    @GetMapping("category/{cid}")
+    public ResponseVo<List<AttrEntity>>  queryByCid(
+            @PathVariable("cid")Long cid,
+            @RequestParam(value = "type",required = false)Integer type,
+            @RequestParam(value = "searchType",required = false)Integer searchType
+    ){
+        List<AttrEntity> attrEntities = attrService.queryByCid(cid,type,searchType);
+        return ResponseVo.ok(attrEntities);
+
+    }
+
 }

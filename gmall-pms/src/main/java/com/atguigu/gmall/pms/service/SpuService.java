@@ -3,6 +3,7 @@ package com.atguigu.gmall.pms.service;
 import com.atguigu.gmall.common.bean.PageParamVo;
 import com.atguigu.gmall.common.bean.PageResultVo;
 import com.atguigu.gmall.pms.entity.SpuEntity;
+import com.atguigu.gmall.pms.vo.SpuVo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -23,5 +24,11 @@ public interface SpuService extends IService<SpuEntity> {
      * @return  spu列表-分页封装
      */
     PageResultVo querySpuInfo(PageParamVo pageParamVo, Long categoryId);
+
+    /**
+     * 保存完整的spu信息
+     * @param spuVo spu对象的封装
+     */
+    void saveSkuVo(SpuVo spuVo);
 }
 
