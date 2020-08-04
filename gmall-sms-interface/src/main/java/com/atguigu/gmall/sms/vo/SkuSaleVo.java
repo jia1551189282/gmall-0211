@@ -1,4 +1,4 @@
-package com.atguigu.gmall.pms.vo;
+package com.atguigu.gmall.sms.vo;
 
 import lombok.Data;
 
@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @author ZJJ
- * @date 2020/8/4 0004 上午 9:25
+ * @date 2020/8/4 0004 上午 10:44
  */
 
 @Data
