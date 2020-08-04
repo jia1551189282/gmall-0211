@@ -2,17 +2,17 @@ package com.atguigu.gmall.sms.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
+import lombok.Data;
 
 /**
  * 首页轮播广告
  * 
- * @author fengge
+ * @author zjiajia
  * @email zjiajia@155.com
- * @date 2020-07-29 15:07:23
+ * @date 2020-08-04 09:23:25
  */
 @Data
 @TableName("sms_home_adv")

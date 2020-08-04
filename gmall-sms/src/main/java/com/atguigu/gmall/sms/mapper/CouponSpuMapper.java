@@ -7,9 +7,9 @@ import org.apache.ibatis.annotations.Mapper;
 /**
  * 优惠券与产品关联
  * 
- * @author fengge
+ * @author zjiajia
  * @email zjiajia@155.com
- * @date 2020-07-29 15:07:23
+ * @date 2020-08-04 09:23:26
  */
 @Mapper
 public interface CouponSpuMapper extends BaseMapper<CouponSpuEntity> {

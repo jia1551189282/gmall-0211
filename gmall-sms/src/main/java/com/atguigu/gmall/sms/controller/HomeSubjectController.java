@@ -22,9 +22,9 @@ import com.atguigu.gmall.common.bean.PageParamVo;
 /**
  * 首页专题表【jd首页下面很多专题，每个专题链接新的页面，展示专题商品信息】
  *
- * @author fengge
+ * @author zjiajia
  * @email zjiajia@155.com
- * @date 2020-07-29 15:07:23
+ * @date 2020-08-04 09:23:25
  */
 @Api(tags = "首页专题表【jd首页下面很多专题，每个专题链接新的页面，展示专题商品信息】 管理")
 @RestController

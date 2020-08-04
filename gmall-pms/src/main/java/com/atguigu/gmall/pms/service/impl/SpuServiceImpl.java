@@ -3,6 +3,7 @@ package com.atguigu.gmall.pms.service.impl;
 import com.atguigu.gmall.common.bean.PageParamVo;
 import com.atguigu.gmall.common.bean.PageResultVo;
 import com.atguigu.gmall.pms.entity.*;
+import com.atguigu.gmall.pms.feign.GmallSmsClient;
 import com.atguigu.gmall.pms.mapper.SkuMapper;
 import com.atguigu.gmall.pms.mapper.SpuDescMapper;
 import com.atguigu.gmall.pms.mapper.SpuMapper;
@@ -10,6 +11,7 @@ import com.atguigu.gmall.pms.service.SkuAttrValueService;
 import com.atguigu.gmall.pms.service.SkuImagesService;
 import com.atguigu.gmall.pms.service.SpuAttrValueService;
 import com.atguigu.gmall.pms.service.SpuService;
+import com.atguigu.gmall.pms.vo.SkuSaleVo;
 import com.atguigu.gmall.pms.vo.SkuVo;
 import com.atguigu.gmall.pms.vo.SpuAttrValueVo;
 import com.atguigu.gmall.pms.vo.SpuVo;
@@ -44,6 +46,9 @@ public class SpuServiceImpl extends ServiceImpl<SpuMapper, SpuEntity> implements
 
     @Autowired
     private SkuAttrValueService skuAttrValueService;
+
+    @Autowired
+    private GmallSmsClient smsClient;
 
     @Override
     public PageResultVo queryPage(PageParamVo paramVo) {
@@ -148,11 +153,13 @@ public class SpuServiceImpl extends ServiceImpl<SpuMapper, SpuEntity> implements
                 saleAttr.setSkuId(skuId);
             });
             this.skuAttrValueService.saveBatch(saleAttrs);
+
+            // 3 保存营销相关的信息，需要远程调用gmall-sms
+            SkuSaleVo skuSaleVo = new SkuSaleVo();
+            BeanUtils.copyProperties(spuVo,skuSaleVo);
+            skuSaleVo.setSkuId(skuId);
+            smsClient.saveSkuSaleInfo(skuSaleVo);
         });
-
-
-
-
     }
 
 

@@ -10,9 +10,9 @@ import lombok.Data;
 /**
  * 专题商品
  * 
- * @author fengge
+ * @author zjiajia
  * @email zjiajia@155.com
- * @date 2020-07-29 15:07:23
+ * @date 2020-08-04 09:23:25
  */
 @Data
 @TableName("sms_home_subject_spu")

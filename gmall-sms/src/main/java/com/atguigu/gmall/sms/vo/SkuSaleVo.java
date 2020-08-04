@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @author ZJJ
- * @date 2020/8/3 0003 下午 5:35
+ * @date 2020/8/4 0004 上午 9:25
  */
 
 @Data
@@ -18,6 +18,7 @@ public class SkuSaleVo {
     // 积分活动
     private BigDecimal growBounds;
     private BigDecimal buyBounds;
+
     /**
      * 优惠生效情况[1111（四个状态位，从右到左）;
      * 0 - 无优惠，成长积分是否赠送;
@@ -34,6 +35,7 @@ public class SkuSaleVo {
 
     private Integer fullCount;
     private BigDecimal discount;
+
     /**
      * 是否叠加其他优惠[0-不可叠加，1-可叠加]
      */
