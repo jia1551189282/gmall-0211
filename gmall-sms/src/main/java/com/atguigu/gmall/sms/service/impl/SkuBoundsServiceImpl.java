@@ -29,6 +29,7 @@ public class SkuBoundsServiceImpl extends ServiceImpl<SkuBoundsMapper, SkuBounds
 
     @Autowired
     private SkuLadderMapper skuLadderMapper;
+
     @Override
     public PageResultVo queryPage(PageParamVo paramVo) {
         IPage<SkuBoundsEntity> page = this.page(
@@ -56,11 +57,10 @@ public class SkuBoundsServiceImpl extends ServiceImpl<SkuBoundsMapper, SkuBounds
         BeanUtils.copyProperties(skuSaleVo,skuFullReductionEntity);
         skuFullReductionEntity.setAddOther(skuSaleVo.getFullAddOther());
         skuFullReductionMapper.insert(skuFullReductionEntity);
-        // 3.3 数量折扣
-
+        // 3.3. 数量折扣
         SkuLadderEntity skuLadderEntity = new SkuLadderEntity();
-        BeanUtils.copyProperties(skuSaleVo,skuBoundsEntity);
-        skuLadderMapper.insert(skuLadderEntity);
+        BeanUtils.copyProperties(skuSaleVo, skuLadderEntity);
+        this.skuLadderMapper.insert(skuLadderEntity);
     }
 
 }

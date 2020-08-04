@@ -155,10 +155,11 @@ public class SpuServiceImpl extends ServiceImpl<SpuMapper, SpuEntity> implements
             this.skuAttrValueService.saveBatch(saleAttrs);
 
             // 3 保存营销相关的信息，需要远程调用gmall-sms
+            // 3. 保存营销相关信息，需要远程调用gmall-sms
             SkuSaleVo skuSaleVo = new SkuSaleVo();
-            BeanUtils.copyProperties(spuVo,skuSaleVo);
+            BeanUtils.copyProperties(skuVo, skuSaleVo);
             skuSaleVo.setSkuId(skuId);
-            smsClient.saveSkuSaleInfo(skuSaleVo);
+            this.smsClient.saveSkuSaleInfo(skuSaleVo);
         });
     }
 
